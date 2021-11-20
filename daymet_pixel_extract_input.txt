@@ -1,0 +1,10 @@
+#########################################################################
+## input file for downloading all daymet parameters for a single pixel
+##
+## period: start, end years, comma separated, btwn 1980-2020
+## location: lat, lon WGS dec. deg., comma separated with in daymet domain
+##
+## NOTE: only takes one period and one location.
+#########################################################################
+period: 1980, 2000
+location: 46.993, -90.85

@@ -1,0 +1,12 @@
+#########################################################################
+## input file to automate downloading daymet parameter coverages
+## for a period and list of specified parameters
+## Inputs:
+## 		period: start, end years, comma separated, btwn 1980-2020
+## 		params: parameters to download coverages for prcp, srad, swe, tmax, tmin, and/or vp 
+## 		location: bounding box of grid in dec. deg. WGS [N, W, E, S]
+#########################################################################
+period: 1981, 1983
+#params: prcp, srad, swe, tmax, tmin, vp
+params: prcp
+location: 45, -91, -90, 44

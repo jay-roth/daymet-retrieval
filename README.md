@@ -6,6 +6,6 @@ Time period encompasses
 Location contains entire Daymet geographical domain in North America, Hawaii, and Puerto Rico
 See Daymet documentation
 
-tile-extract requires time period, parameters, and lat-lon
+pixel-extract requires time period, parameters, and lat-lon
 
 grid-extract requires time period, parameters, and lat-lon of bounding box

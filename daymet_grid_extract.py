@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 15 12:10:20 2015
-
-@author: Jay
+@author: Jason.Roth
+@title: Environmental Engineer
+@affiliation: USDA-NRCS WNTSC
+@email:jason.roth@usda.gov
 """
 
 # -*- coding: utf-8 -*-
@@ -28,10 +30,7 @@ def read_input(infile):
 def getDayMet(out_dir, parameters, years, loc):
     """
     Created on Wed Dec 17 17:01:37 2014
-    
     @author: jroth
-    
-    
     """
     urlpth = "http://thredds.daac.ornl.gov/thredds/ncss/grid/ornldaac/1840/"+\
                 "daymet_v4_daily_na_{0}_{1}.nc?var=lat&var=lon&var={0}&"+\
@@ -73,12 +72,22 @@ infile = os.path.join(cwd, "daymet_download_input.txt")
 
 yrs, loc, par  = read_input(infile)
 
-getDayMet(cwd, par, yrs, loc)
+all_par = ['prcp', 'srad', 'swe', 'tmax', 'tmin', 'vp']
 
+msg = []
 
-
-
-
-
-
-
+if yrs[0]>yrs[1]:
+    msg.append("start year must be less than or equal to end year")
+if loc[0]<=loc[3] or loc[1]>=loc[2]:
+    msg.append("N must be greater than S and E must be greater than W")
+    
+for p in par:
+    if p not in all_par:
+        par.pop(par.index(p))
+  
+if len(msg) > 0:
+    [print(m) for m in msg]
+elif len(par) == 0:
+    print("no valid parameters passed")
+else:  
+    getDayMet(cwd, par, yrs, loc)
